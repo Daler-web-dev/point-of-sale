@@ -1,0 +1,23 @@
+// :root {
+// 	--samarkand: 10px solid green;
+// }
+
+// div {
+// 	width: 400px;
+// 	height: 400px;
+// 	background-color: red;
+// 	position: relative;
+// 	&:after {
+// 		width: 100px;
+// 		height: 20px;
+// 		position: absolute;
+// 		left: 0;
+// 		top: 0;
+// 		background-color: black;
+// 		content: '',
+// 	}
+// 	p {
+// 	}
+// 	background-color: var(--samarkand);
+// }
+

@@ -1,0 +1,28 @@
+#printSection {
+    display: none;
+    position: relative !important;
+    font-family: 'Rubik', sans-serif;
+}
+
+@media print {
+    body {
+        overflow: unset !important;
+    }
+    body * {
+        visibility: hidden;
+    }
+    #app {
+        display: none !important;
+    }
+    #printSection,
+    #printSection *,
+    body {
+        visibility: visible;
+    }
+    #printSection {
+        display: block;
+    }
+    .page-break-after {
+        page-break-after: always;
+    }
+}

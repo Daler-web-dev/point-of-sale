@@ -1,0 +1,18 @@
+body {
+    background-color: red;
+}
+.nav-flex {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding-right: 20px;
+}
+.left {
+	display: flex;
+}
+.right a img{
+	max-width: 30px;
+	border-radius: 100px;
+	/* max-height: 25px; */
+}

@@ -1,0 +1,461 @@
+@media screen and (max-width: 1740px) {
+.body-home .page-one .we-build .side-right h1 {
+	font-size: 67px;
+	line-height: 1;
+}
+.body-home .page-one .we-build {
+    max-width: 90vw;
+}
+.body-home .page-one .link-us {
+	display: none;
+}
+.body-home .page-one .companies {
+	width: calc(100% - 40px);
+	border-radius: 28px;
+    display: flex;
+	justify-content: center;
+	left: 50%;
+    transform: translate(-50%, 20px);
+}
+}
+@media screen and (max-width: 1440px) {
+.body-home .page-one {
+	height: 900px;
+}
+.text-p-heading {
+    font-size: 20px!important;
+    line-height: 27px!important;
+}
+footer .ask {
+	height: auto;
+}
+footer .ask .wrapper {
+	flex-direction: column;
+}
+footer .ask .wrapper .side-left,
+footer .ask .wrapper .side-right {
+	padding: 0;
+}
+footer .ask:after {
+	display: none;
+}
+footer .ask .wrapper .side-right form div input, footer .ask .wrapper .side-right form div textarea {
+	background-color: var(--white);
+}
+footer .ask .wrapper .side-right {
+	padding: 40px 0;
+	width: 60%;
+}
+.heading {
+	margin-bottom: 50px;
+}
+.body-home .page-one .companies img {
+    margin: 0 20px;
+}
+}
+@media screen and (max-width: 1240px) {
+.body-home .page-about-us .wrapper {
+	flex-direction: column;	
+}
+.body-home .page-about-us .side-left {
+	width: 100%;
+}
+.body-home .page-about-us .side-left {
+	flex-direction: row;
+	align-items: flex-start;
+}
+.body-home .page-about-us .side-left .block-one {
+    left: 56px;
+	top: -24px;
+	position: absolute;
+    width: auto;
+}
+.body-home .page-about-us .side-left .block-two {
+    width: auto;
+    position: absolute;
+    right: 40px;
+	bottom: 0;
+	margin: 0;
+}
+.body-home .page-about-us .side-left .block-three {
+	width: auto;
+	position: absolute;
+	left: 184px;
+	bottom: -20px;
+}
+.body-home .page-about-us .side-left {
+	min-width: 100%;
+	width: 100%;
+}
+.body-home .page-about-us .side-left .dots {
+    position: absolute;
+    right: 0;
+	bottom: 0;
+}
+.body-home .page-about-us .side-left {
+	height: 420px;
+}
+.body-home .page-about-us .side-left .dots {
+	left: 24px;
+	bottom: 24px;
+}
+.wrapper-how-we-learn .side-right {
+	padding: 0;
+	padding-top: 64px;
+}
+.wrapper-how-we-learn .side-right .block {
+    margin-bottom: 0;
+}
+.body-home .page-courses .item p {
+	font-size: 18px;
+}
+.body-home .page-courses .item {
+	padding: 24px 24px 110px;
+}
+.widget-choosed-pro {
+	width: auto;
+}
+}
+@media screen and (max-width: 900px) {
+.body-home .page-courses .wrapper .list {
+	display: grid;
+	grid-template-columns: repeat(2,1fr);
+}
+.body-home .page-about-us .wrapper-directs .list div span {
+    font-size: 16px;
+}
+.def-btn {
+    width: 260px;
+	height: 53px;
+}
+.body-home .page-one .companies img {
+    margin: 0 20px;
+    width: calc(100%/6);
+}
+.body-home .page-one .we-build {
+    max-width: 90vw;
+    display: flex;
+    flex-direction: column;
+}
+.body-home .page-one .we-build .side-left {
+	display: flex;
+	justify-content: center;
+}
+.body-home .page-one .we-build .side-left {
+	display: none;
+}
+header .side-left a {
+	display: none;
+}
+header .side-left a:first-child {
+	display: block;
+}
+.body-home .page-one .we-build .side-right {
+	padding-left: 0;
+}
+.body-home .page-one {
+    height: auto;
+}
+.body-home .page-one .we-build {
+	padding: 17vh 0 25vh;
+}
+.body-home .page-one .we-build .side-right h1 {
+    font-size: 55px;
+    line-height: 1;
+}
+.body-home .page-one .we-build .side-right p {
+	width: 70%;
+}
+.margin {
+    height: 70px;
+}
+.text-p-heading {
+    font-size: 18px!important;
+    line-height: 25px!important;
+}
+.body-home .page-about-us .wrapper-about p {
+	width: 90%;
+}
+.body-home .page-about-us .side-left .block-three .block, .body-home .page-about-us .side-left .block-one .block {
+	padding: 25px;
+}
+.body-home .page-about-us .side-left {
+    height: 320px;
+}
+.body-home .page-about-us .side-left .block-one .block p {
+    color: #fff;
+    font-size: 22px;
+    margin: 24px 0 10px;
+    font-weight: 600;
+}
+.body-home .page-about-us .side-left .block-one .block svg {
+    width: 49px;
+    height: 49px;
+}
+.body-home .page-about-us .side-left .block-one {
+    left: -24px;
+    top: -30px;
+}
+.body-home .page-about-us .side-left .dots {
+    opacity: .3;
+}
+img {
+    width: 100%;
+}
+.body-home .page-about-us .side-left .block-two {
+	width: 43%;
+	bottom: 40px;
+}
+h2 {
+    font-size: 37px;
+}
+.body-home .page-courses .item .name {
+	font-size: 28px;
+}
+.body-home .page-courses .item p {
+    font-size: 16px;
+}
+footer .ask .wrapper .side-right {
+	width: 100%;
+}
+footer .footer .down .side-left p {
+    font-size: 43px;
+    font-weight: 600;
+}
+footer .footer .down .side-right .side-top .social {
+	padding-top: 24px;
+	padding-bottom: 24px;
+}
+footer .footer .down .side-right .side-top .social a {
+	margin-left: 0;
+}
+}
+@media screen and (max-width: 740px) {
+.body-home .page-one .we-build .side-right h1 {
+	font-size: 36px;
+	line-height: 1.1;
+}
+header .side-left img {
+    height: 28px;
+}
+header .side-left a {
+	margin: 0;
+}
+.text-p-heading {
+    font-size: 16px!important;
+    line-height: 21px!important;
+}
+.body-home .page-one .companies {
+    width: 100%;
+    overflow: scroll;
+    display: flex;
+    justify-content: flex-start;
+}
+.body-home .page-one .companies img {
+    margin: 0 20px;
+    width: 62%;
+    height: auto;
+}
+.body-home .page-one .companies {
+	padding: 0 30px;
+}
+header .side-left img {
+    width: auto;
+}
+.body-home .page-one .companies {
+	padding: 24px 30px;
+    border-radius: 0;
+    background: #fff;
+    height: auto;
+    transform: none;
+    width: 100%;
+	left: 0;
+	/* width */
+}
+.body-home .page-one .companies::-webkit-scrollbar {
+	height: 3px;
+}
+.body-home .page-one .companies::-webkit-scrollbar-thumb {
+	background-color: #dcdcdc;
+}
+.body-home .page-about-us .wrapper-directs .list .item {
+    border: none;
+    width: auto;
+    /* overflow: visible; */
+    margin-right: 0;
+    height: auto;
+}
+.body-home .page-about-us .wrapper-directs .list {
+	flex-wrap: wrap;
+}
+.body-home .page-about-us .wrapper-directs .list .item {
+    width: auto;
+    margin-right: 0;
+    height: auto;
+    border: 1px solid var(--corp);
+    padding: 14px;
+    margin: 0 6px 6px 0;
+}
+h2 {
+    font-size: 24px;
+    font-weight: 500;
+}
+.margin {
+    height: 46px;
+}
+.body-home .page-about-us .side-left {
+    height: auto;
+}
+.body-home .page-about-us .side-left .block-two {
+    width: 43%;
+    bottom: 40px;
+    position: static;
+    padding: 200px 0 140px 0;
+    width: 80%;
+}
+.body-home .page-about-us .side-left .block-one {
+    left: -48px;
+    top: 8px;
+}
+.body-home .page-about-us .side-left .block-three .block, .body-home .page-about-us .side-left .block-one .block {
+    padding: 25px;
+    white-space: nowrap;
+}
+.body-home .page-about-us .side-left .block-three {
+    left: 24px;
+}
+.wrapper-how-we-learn .side-right h3 {
+    font-size: 20px;
+    font-weight: 400;
+}
+.text-p-normal {
+    font-size: 16px!important;
+    line-height: 22px!important;
+}
+.wrapper-how-we-learn .side-right .block {
+	margin: 44px 0;
+}
+.wrapper-how-we-learn .side-right .list {
+    grid-template-columns: 1fr;
+    grid-gap: 24px;
+}
+.body-home .page-courses .wrapper .list {
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.body-home .page-courses .item {
+    padding: 12px 24px 70px;
+}
+.body-home .page-courses .item a {
+    bottom: 20px;
+}
+.body-home .page-courses .item .name {
+    font-size: 22px;
+}
+.heading {
+    margin-bottom: 32px;
+}
+footer .ask .wrapper .side-left div svg {
+	display: none;
+}
+footer .footer .down {
+	flex-direction: column;
+}
+footer .footer .down .side-right {
+    align-items: flex-start;
+    text-align: left;
+}
+footer .footer .down .side-left p {
+    font-size: 28px;
+    font-weight: 500;
+}
+footer .footer .down {
+	padding-top: 40px;
+}
+footer .footer .down .side-left {
+	padding-bottom: 24px;
+}
+footer .footer .down .side-right .side-top .list {
+	text-align: left;
+}
+footer .footer .down .side-right .side-top .social {
+	width: 100%;
+}
+footer .footer .down .side-right .side-top .social {
+	padding: 0;
+}
+footer .footer .down .side-right .side-top .social a {
+	padding: 0;
+	margin-right: 24px;
+}
+footer .footer .down .side-right .side-top {
+	padding: 14px 0 44px;
+}
+footer .footer .down .side-right .side-top .list a {
+    font-size: 20px!important;
+}
+footer .footer .down .side-right .side-top .social {
+    margin-top: 24px;
+}
+h4 {
+    font-size: 25px;
+    font-weight: 600;
+    margin-bottom: 32px;
+}
+.widget-choosed-pro {
+    width: 100%;
+    height: 75vh;
+    bottom: 0;
+    transform: none;
+    left: 0;
+    padding: 30px;
+	overflow: scroll;
+	top: auto;
+	padding-bottom: 176px;
+}
+.widget-choosed-pro h2 {
+	
+}
+.widget-choosed-pro .close {
+	display: none;
+}
+.widget-choosed-pro .text-p-heading {
+	font-size: 24px!important;
+	font-weight: 500!important;
+	padding-bottom: 24px;
+}
+.widget-choosed-pro .text-p-normal {
+	padding-top: 24px;
+    padding-top: 0;
+}
+.widget-choosed-pro .pluses img {
+    margin-right: 24px;
+}
+.widget-choosed-pro form {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    display: flex;
+	flex-direction: column;
+	background: #fff;
+	width: 100%;
+	padding: 12px 30px;
+	box-shadow: 0 -3px 6px rgba(0,0,0,.1);
+}
+.widget-choosed-pro form input {
+	height: 66px;
+	width: 100%;
+    padding-left: 24px;
+	padding-right: 24px;
+	margin-bottom: 12px;
+	border-radius: 3px;
+	border: none;
+	background-color: var(--white);
+}
+.widget-choosed-pro form .def-btn.btn-fill {
+	width: 100%;
+}
+
+
+
+}

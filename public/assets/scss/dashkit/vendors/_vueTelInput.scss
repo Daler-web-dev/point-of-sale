@@ -1,0 +1,41 @@
+.vue-tel-input {
+    border-radius: 0.375rem !important;
+    border: 1px solid #D2DDEC !important;
+    padding: 0;
+
+    .vti__dropdown {
+        outline: 0;
+        border-radius: 0.375rem;
+
+        &-item {
+            padding: 8px 15px;
+
+            &.highlighted {
+                background-color: #edf2f9;
+            }
+            &.last-preferred {
+                border-bottom: 1px solid #D2DDEC;
+            }
+        }
+        &-list {
+            border: 1px solid #D2DDEC;
+
+            &.below {
+                top: 39px;
+            }
+        }
+    }
+    .vti__input {
+        padding: 0.5rem 0.75rem;
+        border-radius: 0.375rem;
+    }
+
+    &:focus,
+    &:focus-within {
+        color: #12263F;
+        background-color: #FFFFFF !important;
+        border-color: #2C7BE5 !important;
+        outline: 0;
+        box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+    }
+}

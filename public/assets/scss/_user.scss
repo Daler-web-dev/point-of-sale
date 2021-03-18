@@ -1,0 +1,52 @@
+// 
+// user.scss
+// Use this to write your custom SCSS
+//
+
+// Vertical small
+//
+// Creates a small vertion of the vertical navbar
+@media only screen and (min-width: 768px) {
+    .navbar-vertical-sm {
+        li {
+            margin-bottom: 15px;
+            border: 1px solid red;
+
+            a {
+                display: flex;
+                flex-direction: column;
+
+                span {
+                    display: block !important;
+                    color: #95AAC9;
+                    font-size: 14px;
+                }
+            }
+
+            &:hover {
+                ul {
+                    display: flex !important;
+                    flex-direction: column;
+                    align-items: flex-start;
+
+                    li {
+                        margin-bottom: 0 !important;
+
+                        a span {
+                            color: #6E84A3;
+                            font-size: 15px;
+
+                            &:hover {
+                                color: #12263F;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        & .nav-link>.fe {
+            font-size: 1.6em !important;
+        }
+    }
+}
