@@ -1,11 +1,11 @@
 <template>
+<!-- heading -->
 	<div class="store-app">
 		<b-navbar type="dark" variant="black">
 			<b-navbar-nav class="nav-flex">
 				<div class="left">
 					<h1 class="categories" >Категории</h1>
 				</div>
-					<!-- <b-nav-item href="#">Demo</b-nav-item> -->
 				<div class="head-center" :class="{ qtWidgetOn: widgets.quantityWidget == true }">
 					<strong>{{ widgets.trnafervalue.name }}</strong>
 						<div class="select-qt">
@@ -56,6 +56,7 @@
 					/>		
 				</div>
 			</div>
+			<!-- cart -->
 			<div class="cart-site">
 				<span>Корзина</span>				
 				<div class="products-place">
@@ -113,14 +114,14 @@ export default {
 			widgets: {
 				quantityWidget: false,
 				trnafervalue: 0,
-				prIsActive: {}
 			},
 		}
 	},
 	methods: {
 		pushToCart(data) {
 			let foundProduct = this.productArr.find(product => product.id === data);
-			 if(!this.selectedProducts.includes(foundProduct))
+			// ищем одинковый объект, если он есть 
+			if(!this.selectedProducts.includes(foundProduct))
 				this.selectedProducts.unshift(foundProduct)
 			else{
 				this.changeCount({id:foundProduct.id, data: true})
@@ -134,6 +135,7 @@ export default {
             if (data.data) {
                 item.qt++
 			}
+			// если кол-во равна 0 то удаляем айтем
             else if (item.qt === 0) {
 				this.selectedProducts.splice(this.productArr.find(product => product.id === data.id), 1)
 				this.widgets.quantityWidget = false
