@@ -1,11 +1,11 @@
 <template>
 	<!-- heading -->
 	<div class="store-app">
-		<b-navbar type="dark" variant="black">
-			<b-navbar-nav class="nav-flex">
-				<div class="left">
-					<h1 class="categories">Категории</h1>
-				</div>
+		<b-navbar type="dark" variant="dark">
+			<b-navbar-nav>
+				<b-nav-item href="#">Home</b-nav-item>
+
+				<!-- Navbar dropdowns -->
 				<div
 					class="head-center"
 					:class="{ qtWidgetOn: widgets.quantityWidget == true }"
@@ -36,71 +36,89 @@
 					</div>
 				</div>
 
-				<div class="right">
-					<b-nav-item href="#">Demo</b-nav-item>
-
-					<b-nav-item-dropdown text="User" right>
-						<b-dropdown-item href="#">Account</b-dropdown-item>
-						<b-dropdown-item href="#">Settings</b-dropdown-item>
-					</b-nav-item-dropdown>
-				</div>
+				<b-nav-item-dropdown text="User" right>
+					<b-dropdown-item href="#">Account</b-dropdown-item>
+					<b-dropdown-item href="#">Settings</b-dropdown-item>
+				</b-nav-item-dropdown>
 			</b-navbar-nav>
 		</b-navbar>
 
+		<div class="nav-bar-left">
+			<div class="links">
+				<a href="">
+					home
+				</a>
+				<a href="">
+					home
+				</a>
+				<a href="">
+					home
+				</a>
+			</div>
+		</div>
+
 		<div class="main-block">
-			<div class="container-for-products">
-				<div class="static-place">
-					<!-- фильтры -->
-					<div class="filter">
-						<span>isolution</span>
-					</div>
-					<div class="filter">
-						<span>Lorem, ipsum.</span>
-					</div>
-					<div class="filter">
-						<span>cool</span>
-					</div>
-					<div class="filter">
-						<span>hollywood</span>
-					</div>
-					<div class="filter">
-						<span>nonon</span>
-					</div>
-					<div class="filter">
-						<span>anything</span>
-					</div>
+			<div class="static-place">
+				<!-- фильтры -->
+				<div class="filter">
+					<span>isolution</span>
 				</div>
-				<div class="static-place">
-					<!-- продукты -->
-					<productComponent
-						class="product-item"
-						:class="{
-							'product-is-active':
-								widgets.trnafervalue.productIsActive === true,
-						}"
-						v-for="item of productArr"
-						:key="item.id"
-						:transferValue="item"
-						@pushTocart="pushToCart"
-					/>
+				<div class="filter">
+					<span>Lorem, ipsum.</span>
 				</div>
+				<div class="filter">
+					<span>cool</span>
+				</div>
+				<div class="filter">
+					<span>hollywood</span>
+				</div>
+				<div class="filter">
+					<span>nonon</span>
+				</div>
+				<div class="filter">
+					<span>anything</span>
+				</div>
+				<div class="filter">
+					<span>hollywood</span>
+				</div>
+				<div class="filter">
+					<span>nonon</span>
+				</div>
+				<div class="filter">
+					<span>anything</span>
+				</div>
+			</div>
+			<div class="static-place">
+				<!-- продукты -->
+				<productComponent
+					class="product-item"
+					:class="{
+						'product-is-active':
+							widgets.trnafervalue.productIsActive === true,
+					}"
+					v-for="item of productArr"
+					:key="item.id"
+					:transferValue="item"
+					@pushTocart="pushToCart"
+				/>
 			</div>
 			<!-- cart -->
-			<div class="cart-site">
-				<span>Корзина</span>
-				<div class="products-place">
-					<productInCart
-						v-for="item2 of selectedProducts"
-						:key="item2.id"
-						:transferValuee="item2"
-						@deleteItem="deleteItem"
-						@changeCount="changeCount"
-					/>
+				<div class="cart-site">
+					<span>Корзина</span>
+					<div class="products-place">
+						<span class="temporery-span" v-if="selectedProducts.length == 0">Корзина пуста</span>
+						<productInCart
+							v-for="item2 of selectedProducts"
+							:key="item2.id"
+							:transferValuee="item2"
+							@deleteItem="deleteItem"
+							@changeCount="changeCount"
+						/>
+					</div>
+					<button class="card-btn">
+						всего к оплате {{ cartTotalCost }} сум
+					</button>
 				</div>
-				<button class="card-btn">
-					всего к оплате {{ cartTotalCost }} сум
-				</button>
-			</div>
 		</div>
 	</div>
 </template>
@@ -187,6 +205,8 @@ export default {
 			}
 		},
 		deleteItem(data) {
+			let item = this.selectedProducts.find((product) => product.id === data)
+			item.qt = 0
 			let index = this.selectedProducts.findIndex(
 				(item) => item.id === data
 			);
