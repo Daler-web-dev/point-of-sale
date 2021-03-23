@@ -3,43 +3,52 @@
 	<div class="store-app">
 		<b-navbar type="dark" variant="dark">
 			<b-navbar-nav>
-				<b-nav-item href="#">Home</b-nav-item>
-
 				<!-- Navbar dropdowns -->
-				<div
-					class="head-center"
-					:class="{ qtWidgetOn: widgets.quantityWidget == true }"
-				>
-					<strong>{{ widgets.trnafervalue.name }}</strong>
-					<div class="select-qt">
-						<button
-							@click="
-								changeCount({
-									id: widgets.trnafervalue.id,
-									data: false,
-								})
-							"
+				<div class="nav-bar">
+					<div class="search-inp">
+						<b-nav-item href="#">Demo</b-nav-item>
+						<h3>Категории</h3>
+						<b-form-input
+							v-model="widgets.text"
+							placeholder="Что вы ищите?"
+							class="search-input"
+						></b-form-input>
+						<b-button variant="secondary">Search</b-button>
+						<div
+							class="head-center"
+							:class="{ qtWidgetOn: widgets.quantityWidget == true }"
 						>
-							-
-						</button>
-						<span>{{ widgets.trnafervalue.qt }}</span>
-						<button
-							@click="
-								changeCount({
-									id: widgets.trnafervalue.id,
-									data: true,
-								})
-							"
-						>
-							+
-						</button>
+							<strong>{{ widgets.trnafervalue.name }}</strong>
+							<div class="select-qt">
+								<button
+									@click="
+										changeCount({
+											id: widgets.trnafervalue.id,
+											data: false,
+										})
+									"
+								>
+									-
+								</button>
+								<span>{{ widgets.trnafervalue.qt }}</span>
+								<button
+									@click="
+										changeCount({
+											id: widgets.trnafervalue.id,
+											data: true,
+										})
+									"
+								>
+									+
+								</button>
+							</div>
 					</div>
+					</div>
+					<b-nav-item-dropdown text="User" right>
+						<b-dropdown-item href="#">Account</b-dropdown-item>
+						<b-dropdown-item href="#">Settings</b-dropdown-item>
+					</b-nav-item-dropdown>
 				</div>
-
-				<b-nav-item-dropdown text="User" right>
-					<b-dropdown-item href="#">Account</b-dropdown-item>
-					<b-dropdown-item href="#">Settings</b-dropdown-item>
-				</b-nav-item-dropdown>
 			</b-navbar-nav>
 		</b-navbar>
 
@@ -103,22 +112,26 @@
 				/>
 			</div>
 			<!-- cart -->
-				<div class="cart-site">
-					<span>Корзина</span>
-					<div class="products-place">
-						<span class="temporery-span" v-if="selectedProducts.length == 0">Корзина пуста</span>
-						<productInCart
-							v-for="item2 of selectedProducts"
-							:key="item2.id"
-							:transferValuee="item2"
-							@deleteItem="deleteItem"
-							@changeCount="changeCount"
-						/>
-					</div>
-					<button class="card-btn">
-						всего к оплате {{ cartTotalCost }} сум
-					</button>
+			<div class="cart-site">
+				<span>Корзина</span>
+				<div class="products-place">
+					<cartImg
+						src="/src/assets/img/icons/shopping-cart.svg"
+						class="temporery-img"
+						v-if="selectedProducts.length == 0"
+					/>
+					<productInCart
+						v-for="item2 of selectedProducts"
+						:key="item2.id"
+						:transferValuee="item2"
+						@deleteItem="deleteItem"
+						@changeCount="changeCount"
+					/>
 				</div>
+				<button class="card-btn">
+					всего к оплате {{ cartTotalCost }} сум
+				</button>
+			</div>
 		</div>
 	</div>
 </template>
@@ -128,6 +141,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import productComponent from './components/product.vue';
 import productInCart from './components/productInCart';
+import cartImg from './components/cartImg';
 
 export default {
 	data() {
@@ -166,6 +180,7 @@ export default {
 			widgets: {
 				quantityWidget: false,
 				trnafervalue: 0,
+				text: ''	
 			},
 		};
 	},
@@ -205,8 +220,10 @@ export default {
 			}
 		},
 		deleteItem(data) {
-			let item = this.selectedProducts.find((product) => product.id === data)
-			item.qt = 0
+			let item = this.selectedProducts.find(
+				(product) => product.id === data
+			);
+			item.qt = 0;
 			let index = this.selectedProducts.findIndex(
 				(item) => item.id === data
 			);
@@ -224,6 +241,7 @@ export default {
 	components: {
 		productComponent,
 		productInCart,
+		cartImg
 	},
 };
 </script>

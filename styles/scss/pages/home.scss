@@ -1,5 +1,5 @@
 body {
-    min-width: 1920px;
+    min-width: 1366px;
 }
 .categories {
 	color: white;
@@ -42,11 +42,10 @@ body {
 .static-place:nth-child(2) {
     margin-left: 0px;
 }
-.temporery-span {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    font-size: 80px;
+.temporery-img {
+	transform: translate(120px, 302px);
+	width: 200px;
+	fill: #232124;
 }
 .filter {
 	display: flex;
@@ -218,4 +217,20 @@ body {
     top: 62px;
     left: 0px;
     bottom: 0px;
+}
+.nav-bar {
+	display: flex;
+	justify-content: space-between;
+	min-width: 1860px;
+}
+.search-inp {
+	display: flex;
+	align-items: center;
+}
+.search-inp h3 {
+	color: white;
+	margin: 0px 20px;
+}
+.search-input {
+	width: 400px;	
 }
