@@ -23,12 +23,51 @@ body {
 	min-height: 100%;
 }
 .card-btn {
-	width: 100%;
-    height: 80px;
-    background-color: #187589;
-    border: none;
+	display: flex;
+	justify-content: space-between;
+	height: 90px;
+	background-color: #177688;
+}
+.card-btn span {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-left: 30px;
 	color: white;
-    font-size: 28px;
+	font-size: 25px;
+	max-width: 350px;
+	text-transform: uppercase;
+}
+.card-btn .b-btn {
+	background-color: #177688;
+	width: 100px;
+	border: none;
+	border-left: black 1px solid;
+}
+.modal-content {
+	display: block;
+	background: none;
+	border: none;
+}
+.payment-options {
+	display: flex;
+	flex-direction: column;
+	padding-left: 50px;
+	transform: translateY(335px);
+}
+.payment-options strong {
+	color: white;
+	font-size: 50px;
+	cursor: pointer;
+}
+.payment-options strong:hover {
+	color: #BA5E8B;
+}
+.modal-header {
+	display: none;
+}
+.modal-footer {
+	display: none;
 }
 .static-place {
 	display: flex;
@@ -75,6 +114,15 @@ body {
 }
 .filter:nth-child(6) {
 	background-color: #46AABA;
+}
+.filter:nth-child(7) {
+	background-color: #D3A885;
+}
+.filter:nth-child(8) {
+	background-color: #375184;
+}
+.filter:nth-child(9) {
+	background-color: #819DB2;
 }
 .qt {
 	display: block;

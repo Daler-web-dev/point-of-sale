@@ -16,7 +16,9 @@
 						<b-button variant="secondary">Search</b-button>
 						<div
 							class="head-center"
-							:class="{ qtWidgetOn: widgets.quantityWidget == true }"
+							:class="{
+								qtWidgetOn: widgets.quantityWidget == true,
+							}"
 						>
 							<strong>{{ widgets.trnafervalue.name }}</strong>
 							<div class="select-qt">
@@ -42,7 +44,7 @@
 									+
 								</button>
 							</div>
-					</div>
+						</div>
 					</div>
 					<b-nav-item-dropdown text="User" right>
 						<b-dropdown-item href="#">Account</b-dropdown-item>
@@ -69,10 +71,10 @@
 		<div class="main-block">
 			<div class="static-place">
 				<!-- фильтры -->
-				<div class="filter">
+				<div @click="filterProduct('isolution')" class="filter">
 					<span>isolution</span>
 				</div>
-				<div class="filter">
+				<div @click="filterProduct('all')" class="filter">
 					<span>Lorem, ipsum.</span>
 				</div>
 				<div class="filter">
@@ -128,11 +130,23 @@
 						@changeCount="changeCount"
 					/>
 				</div>
-				<button class="card-btn">
-					всего к оплате {{ cartTotalCost }} сум
-				</button>
+				<div class="card-btn">
+					<span>всего к оплате {{ cartTotalCost }} сум</span>
+					<b-button id="show-btn" class="b-btn" @click="showModal"
+						><payImg @click="PaymentOptions" />
+					</b-button>
+				</div>
 			</div>
 		</div>
+		<!-- ------------modal payment options----------- -->
+		<b-modal ref="my-modal" hide-footer>
+			<div class="payment-options">
+				<strong>Card</strong>
+				<strong>Cash</strong>
+				<strong>Split</strong>
+				<strong @click="hideModal">Cancel</strong>
+			</div>
+		</b-modal>
 	</div>
 </template>
 
@@ -142,6 +156,7 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 import productComponent from './components/product.vue';
 import productInCart from './components/productInCart';
 import cartImg from './components/cartImg';
+import payImg from './components/payImg';
 
 export default {
 	data() {
@@ -153,6 +168,7 @@ export default {
 					price: 10000,
 					qt: 0,
 					productIsActive: false,
+					typeof: 'isolution',
 				},
 				{
 					id: Math.random(),
@@ -174,17 +190,24 @@ export default {
 					price: 10000,
 					qt: 0,
 					productIsActive: false,
+					typeof: 'isolution',
 				},
 			],
 			selectedProducts: [],
 			widgets: {
 				quantityWidget: false,
 				trnafervalue: 0,
-				text: ''	
+				text: '',
 			},
 		};
 	},
 	methods: {
+		showModal() {
+			this.$refs['my-modal'].show();
+		},
+		hideModal() {
+			this.$refs['my-modal'].hide();
+		},
 		pushToCart(data) {
 			let foundProduct = this.productArr.find(
 				(product) => product.id === data
@@ -229,6 +252,18 @@ export default {
 			);
 			this.selectedProducts.splice(index, 1);
 		},
+		filterProduct(data) {
+			let staticPrArr = this.productArr;
+			let loweredData = data.toLowerCase();
+
+			if (loweredData === 'isolution') {
+				staticPrArr = staticPrArr.filter(
+					(item) => item.typeof == 'isolution'
+				);
+			} else if (loweredData === 'all') {
+				console.log(staticPrArr);
+			} else alert('sorry');
+		},
 	},
 	computed: {
 		cartTotalCost() {
@@ -241,7 +276,8 @@ export default {
 	components: {
 		productComponent,
 		productInCart,
-		cartImg
+		cartImg,
+		payImg,
 	},
 };
 </script>
