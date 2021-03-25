@@ -133,7 +133,7 @@
 				<div class="card-btn">
 					<span>всего к оплате {{ cartTotalCost }} сум</span>
 					<b-button id="show-btn" class="b-btn" @click="showModal"
-						><payImg @click="PaymentOptions" />
+						><payImg />
 					</b-button>
 				</div>
 			</div>
