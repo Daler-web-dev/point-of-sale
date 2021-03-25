@@ -55,17 +55,15 @@
 		</b-navbar>
 
 		<div class="nav-bar-left">
-			<div class="links">
-				<a href="">
-					home
-				</a>
-				<a href="">
-					home
-				</a>
-				<a href="">
-					home
-				</a>
-			</div>
+			<a class="sideBar-link" href="#">
+				<homeImg class="img-link" />
+			</a>
+			<a class="sideBar-link" href="#">
+				<boardImg class="img-link" />
+			</a>
+			<a class="sideBar-link" href="#">
+				<sbarimg class="img-link" />
+			</a>
 		</div>
 
 		<div class="main-block">
@@ -157,6 +155,9 @@ import productComponent from './components/product.vue';
 import productInCart from './components/productInCart';
 import cartImg from './components/cartImg';
 import payImg from './components/payImg';
+import boardImg from './components/boardImg';
+import sbarimg from './components/sbarImg.vue';
+import homeImg from './components/homeImg';
 
 export default {
 	data() {
@@ -278,6 +279,9 @@ export default {
 		productInCart,
 		cartImg,
 		payImg,
+		boardImg,
+		sbarimg,
+		homeImg,
 	},
 };
 </script>
