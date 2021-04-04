@@ -1,104 +1,46 @@
 <template>
-	<!-- heading -->
 	<div class="store-app">
-		<b-navbar type="dark" variant="dark">
-			<b-navbar-nav>
-				<!-- Navbar dropdowns -->
-				<div class="nav-bar">
-					<div class="search-inp">
-						<b-nav-item href="#">Demo</b-nav-item>
-						<h3>Категории</h3>
+		<b-navbar toggleable="lg" type="black" variant="white" class="navbar">
+			<b-navbar-brand href="#">Demo</b-navbar-brand>
+
+			<b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
+
+			<b-collapse id="nav-collapse" is-nav>
+				<!-- Right aligned nav items -->
+				<b-navbar-nav class="ml-auto">
+					<b-nav-form class="nav-form">
+						<button class="btn-sm"
+							><searchImg
+						/></button>
 						<b-form-input
-							v-model="widgets.text"
-							placeholder="Что вы ищите?"
-							class="search-input"
+							size="sm"
+							class="mr-sm-2 nav-input"
+							placeholder="Search"
 						></b-form-input>
-						<b-button variant="secondary">Search</b-button>
-						<div
-							class="head-center"
-							:class="{
-								qtWidgetOn: widgets.quantityWidget == true,
-							}"
-						>
-							<strong>{{ widgets.trnafervalue.name }}</strong>
-							<div class="select-qt">
-								<button
-									@click="
-										changeCount({
-											id: widgets.trnafervalue.id,
-											data: false,
-										})
-									"
-								>
-									-
-								</button>
-								<span>{{ widgets.trnafervalue.qt }}</span>
-								<button
-									@click="
-										changeCount({
-											id: widgets.trnafervalue.id,
-											data: true,
-										})
-									"
-								>
-									+
-								</button>
-							</div>
-						</div>
-					</div>
-					<b-nav-item-dropdown text="User" right>
-						<b-dropdown-item href="#">Account</b-dropdown-item>
-						<b-dropdown-item href="#">Settings</b-dropdown-item>
+					</b-nav-form>
+
+					<b-nav-item-dropdown right>
+						<!-- Using 'button-content' slot -->
+						<template #button-content>
+							<em>User</em>
+						</template>
+						<b-dropdown-item href="#">Profile</b-dropdown-item>
+						<b-dropdown-item href="#">Sign Out</b-dropdown-item>
 					</b-nav-item-dropdown>
-				</div>
-			</b-navbar-nav>
+				</b-navbar-nav>
+			</b-collapse>
 		</b-navbar>
 
-		<div class="nav-bar-left">
-			<a class="sideBar-link" href="#">
-				<homeImg class="img-link" />
-			</a>
-			<a class="sideBar-link" href="#">
-				<boardImg class="img-link" />
-			</a>
-			<a class="sideBar-link" href="#">
-				<sbarimg class="img-link" />
-			</a>
-		</div>
-
 		<div class="main-block">
-			<div class="static-place">
-				<!-- фильтры -->
-				<div @click="filterProduct('isolution')" class="filter">
-					<span>isolution</span>
-				</div>
-				<div @click="filterProduct('all')" class="filter">
-					<span>Lorem, ipsum.</span>
-				</div>
-				<div class="filter">
-					<span>cool</span>
-				</div>
-				<div class="filter">
-					<span>hollywood</span>
-				</div>
-				<div class="filter">
-					<span>nonon</span>
-				</div>
-				<div class="filter">
-					<span>anything</span>
-				</div>
-				<div class="filter">
-					<span>hollywood</span>
-				</div>
-				<div class="filter">
-					<span>nonon</span>
-				</div>
-				<div class="filter">
-					<span>anything</span>
+			<!-- фильтры -->
+			<div class="categories-place">
+				<h3>Категории</h3>
+				<div class="filter" v-for="item of categories" :key="item.key">
+					<span>{{ item.name }}</span>
 				</div>
 			</div>
+			<!-- продукты -->
 			<div class="static-place">
-				<!-- продукты -->
 				<productComponent
 					class="product-item"
 					:class="{
@@ -112,14 +54,8 @@
 				/>
 			</div>
 			<!-- cart -->
-			<div class="cart-site">
-				<span>Корзина</span>
-				<div class="products-place">
-					<cartImg
-						src="/src/assets/img/icons/shopping-cart.svg"
-						class="temporery-img"
-						v-if="selectedProducts.length == 0"
-					/>
+			<div class="cart">
+				<div class="products-incart-place">
 					<productInCart
 						v-for="item2 of selectedProducts"
 						:key="item2.id"
@@ -128,12 +64,14 @@
 						@changeCount="changeCount"
 					/>
 				</div>
-				<div class="card-btn">
-					<span>всего к оплате {{ cartTotalCost }} сум</span>
-					<b-button id="show-btn" class="b-btn" @click="showModal"
-						><payImg />
-					</b-button>
-				</div>
+				<b-button id="show-btn" class="b-btn" @click="showModal">
+					<div class="card-btn">
+						<span v-if="cartTotalCost === 0">Корзина путсая</span>
+						<span v-if="cartTotalCost > 0"
+							>всего к оплате {{ cartTotalCost }} сум</span
+						>
+					</div>
+				</b-button>
 			</div>
 		</div>
 		<!-- ------------modal payment options----------- -->
@@ -153,16 +91,104 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import productComponent from './components/product.vue';
 import productInCart from './components/productInCart';
-import cartImg from './components/cartImg';
-import payImg from './components/payImg';
-import boardImg from './components/boardImg';
-import sbarimg from './components/sbarImg.vue';
-import homeImg from './components/homeImg';
+import searchImg from './components/searchImg';
 
 export default {
 	data() {
 		return {
 			productArr: [
+				{
+					id: Math.random(),
+					name: 'opalDam Dam',
+					price: 15000,
+					qt: 0,
+					productIsActive: false,
+					typeof: 'isolution',
+				},
+				{
+					id: Math.random(),
+					name: 'ukol Dam',
+					price: 20000,
+					qt: 0,
+					productIsActive: false,
+				},
+				{
+					id: Math.random(),
+					name: 'lopatka lopatka',
+					price: 34000,
+					qt: 0,
+					productIsActive: false,
+				},
+				{
+					id: Math.random(),
+					name: 'masjina lopatka',
+					price: 28000,
+					qt: 0,
+					productIsActive: false,
+					typeof: 'isolution',
+				},
+				{
+					id: Math.random(),
+					name: 'masjina lopatka',
+					price: 11000,
+					qt: 0,
+					productIsActive: false,
+					typeof: 'isolution',
+				},
+				{
+					id: Math.random(),
+					name: 'masjina lopatka',
+					price: 1000,
+					qt: 0,
+					productIsActive: false,
+					typeof: 'isolution',
+				},
+				{
+					id: Math.random(),
+					name: 'opalDam Dam',
+					price: 33000,
+					qt: 0,
+					productIsActive: false,
+					typeof: 'isolution',
+				},
+				{
+					id: Math.random(),
+					name: 'ukol Dam',
+					price: 25000,
+					qt: 0,
+					productIsActive: false,
+				},
+				{
+					id: Math.random(),
+					name: 'lopatka lopatka',
+					price: 15000,
+					qt: 0,
+					productIsActive: false,
+				},
+				{
+					id: Math.random(),
+					name: 'masjina lopatka',
+					price: 10000,
+					qt: 0,
+					productIsActive: false,
+					typeof: 'isolution',
+				},
+				{
+					id: Math.random(),
+					name: 'masjina lopatka',
+					price: 10000,
+					qt: 0,
+					productIsActive: false,
+					typeof: 'isolution',
+				},
+				{
+					id: Math.random(),
+					name: 'masjina lopatka',
+					price: 10000,
+					qt: 0,
+					productIsActive: false,
+					typeof: 'isolution',
+				},
 				{
 					id: Math.random(),
 					name: 'opalDam Dam',
@@ -193,6 +219,22 @@ export default {
 					productIsActive: false,
 					typeof: 'isolution',
 				},
+				{
+					id: Math.random(),
+					name: 'masjina lopatka',
+					price: 10000,
+					qt: 0,
+					productIsActive: false,
+					typeof: 'isolution',
+				},
+				{
+					id: Math.random(),
+					name: 'masjina lopatka',
+					price: 10000,
+					qt: 0,
+					productIsActive: false,
+					typeof: 'isolution',
+				},
 			],
 			selectedProducts: [],
 			widgets: {
@@ -200,7 +242,46 @@ export default {
 				trnafervalue: 0,
 				text: '',
 			},
+			categories: [
+				{
+					name: 'Cements',
+				},
+				{
+					name: 'Isolation',
+				},
+				{
+					name: 'Endodontic materials',
+				},
+				{
+					name: 'Temporary Fillings',
+				},
+				{
+					name: 'Acrylic resins',
+				},
+				{
+					name: 'Topical Anesthetics',
+				},
+				{
+					name: 'Composite resins',
+				},
+				{
+					name: 'Glass ionomer cements',
+				},
+			],
 		};
+	},
+	components: {
+		productComponent,
+		productInCart,
+		searchImg,
+	},
+	computed: {
+		cartTotalCost() {
+			return this.selectedProducts.reduce(
+				(total, item) => total + item.price * item.qt,
+				0
+			);
+		},
 	},
 	methods: {
 		showModal() {
@@ -265,23 +346,6 @@ export default {
 				console.log(staticPrArr);
 			} else alert('sorry');
 		},
-	},
-	computed: {
-		cartTotalCost() {
-			return this.selectedProducts.reduce(
-				(total, item) => total + item.price * item.qt,
-				0
-			);
-		},
-	},
-	components: {
-		productComponent,
-		productInCart,
-		cartImg,
-		payImg,
-		boardImg,
-		sbarimg,
-		homeImg,
 	},
 };
 </script>

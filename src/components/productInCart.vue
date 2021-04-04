@@ -1,42 +1,46 @@
 <template>
 	<div class="product-inCart">
-		<div class="top-line">
-			<h3>x {{ transferValuee.qt }}</h3>
-			<span>{{ transferValuee.name }}</span>
-			<span>${{ transferValuee.price }}</span>
-		</div>
-		<div class="bottom-line">
-			<div class="select-qt">
-				<button
-					class="increase-btn"
-					@click="
-						$emit('changeCount', {
-							id: transferValuee.id,
-							data: false,
-						})
-					"
-				>
-					-
-				</button>
-				<!-- <span>{{ transferValuee.qt }}</span> -->
-				<button
-					class="increase-btn"
-					@click="
-						$emit('changeCount', {
-							id: transferValuee.id,
-							data: true,
-						})
-					"
-				>
-					+
-				</button>
+		<div class="top-side">
+			<h3>{{ transferValuee.name }}</h3>
+			<div>
+				<span>${{ itemtotalcoast }}</span>
+				<h4>${{ transferValuee.price }}</h4>
 			</div>
+		</div>
+		<div class="bottom-side">
 			<span>{{ transferValuee.name }}</span>
-			<span
-				class="delete-btn"
-				@click="$emit('deleteItem', transferValuee.id)"
-				>delete</span
-			>
+			<div class="increase-delete-btns">
+				<div class="select-qt">
+					<button
+						class="increase-btn"
+						@click="
+							$emit('changeCount', {
+								id: transferValuee.id,
+								data: false,
+							})
+						"
+					>
+						-
+					</button>
+					<input class="qt-input" v-model="transferValuee.qt" type="number">
+					<button
+						class="increase-btn"
+						@click="
+							$emit('changeCount', {
+								id: transferValuee.id,
+								data: true,
+							})
+						"
+					>
+						+
+					</button>
+				</div>
+				<span
+					class="delete-btn"
+					@click="$emit('deleteItem', transferValuee.id)"
+					>X
+				</span>
+			</div>
 		</div>
 	</div>
 </template>
@@ -45,6 +49,11 @@
 export default {
 	name: 'productInCart',
 	props: ['transferValuee'],
+	computed: {
+		itemtotalcoast() {
+			return this.transferValuee.qt * this.transferValuee.price
+		}
+	}
 };
 </script>
 

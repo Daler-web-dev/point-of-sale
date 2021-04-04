@@ -1,8 +1,11 @@
 <template>
 	<div @click="$emit('pushTocart', transferValue.id)">
-		<strong class="qt">{{ transferValue.qt }}</strong>
-		<span class="typename">{{ transferValue.name }}</span>
-		<span class="price">{{ transferValue.price }} сум</span>
+		<img src="" alt="" />
+		<div class="main-info">
+			<span class="typename">{{ transferValue.name }}</span>
+			<strong class="qt">{{ transferValue.qt }}</strong>
+		</div>
+		<span class="price">${{ transferValue.price }}</span>
 	</div>
 </template>
 
